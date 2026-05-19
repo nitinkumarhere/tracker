@@ -25,7 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n0u^0k!5ng-7+1c+xd4p^(39f!q0l@4ynfo03sz4$+5k2ymegc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Hardcode to False for production safety; reads environment variable if explicitly set
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+
 
 # Fallback directly to your live Render domain inside the code array
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'tracker-36la.onrender.com,127.0.0.1,localhost').split(',')
@@ -95,7 +97,7 @@ ROOT_URLCONF = 'tracker.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
