@@ -1,0 +1,8 @@
+# Save this text as .gitignore in your root directory
+*.pyc
+__pycache__/
+db.sqlite3
+staticfiles/
+.env/
+.pytest_cache/
+
