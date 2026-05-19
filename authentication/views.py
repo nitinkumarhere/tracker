@@ -27,6 +27,7 @@ class ProfileView(generics.RetrieveUpdateAPIView):
 class ChangePasswordView(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ChangePasswordSerializer
+    http_method_names = ['put']
 
     # def update(self, request, *exclude_kwargs):
     #     serializer = self.get_serializer(data=request.data)
