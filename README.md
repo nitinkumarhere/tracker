@@ -21,6 +21,14 @@ A secure, well-structured, tech-stack agnostic REST API built to power a persona
 3. **Rapid Development**: The ecosystem natively supports advanced automated schema mapping. This allowed the auto-generation of highly detailed, interactive Swagger documentation directly from serializers and models within a tight 2-day delivery window.
 
 ---
+### The Quick Way (Automated)
+If you are on macOS or Linux (Ubuntu), you can use the shortcut command to create the virtual environment, install dependencies, run migrations, seed data, and start the server all at once:
+
+```bash
+make
+```
+
+---
 
 ## 🚀 Local Installation & Setup
 
