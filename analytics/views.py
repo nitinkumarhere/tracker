@@ -8,13 +8,20 @@ from django.db.models import Sum, Q
 from django.db.models.functions import TruncMonth
 from decimal import Decimal
 import datetime
-
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 from transactions.models import Transaction
 
 
 class AnalyticsDashboardView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(name='start_date', description='Filter start date (YYYY-MM-DD)', required=False, type=str),
+            OpenApiParameter(name='end_date', description='Filter end date (YYYY-MM-DD)', required=False, type=str),
+            OpenApiParameter(name='months', description='Number of historical months for trend analysis', required=False, type=int, default=6),
+        ]
+    )
     def get(self, request):
         user = request.user
 
