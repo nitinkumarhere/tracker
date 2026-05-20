@@ -18,6 +18,7 @@ class TransactionPagination(PageNumberPagination):
 
 
 class TransactionViewSet(viewsets.ModelViewSet):
+    queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
     pagination_class = TransactionPagination
 
